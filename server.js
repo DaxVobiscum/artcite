@@ -18,6 +18,9 @@ var storeOptions = _.extend(config[ "redis-options" ], {
     client: redisClient
 });
 
+var serverHost = process.env.IP || "localhost";
+var serverPort = process.env.PORT || "8080";
+
 app.use(session({
     resave: false,
     saveUninitialized: false,
@@ -32,7 +35,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "index.html"));
 });
 
-var server = app.listen(process.env.PORT, process.env.IP, 0, () => {
+var server = app.listen(serverPort, serverHost, 0, () => {
     
-    console.log(sprintf("Server running: http://%s:%s", process.env.IP, process.env.PORT));
+    console.log(sprintf("Server running: http://%s:%s", serverHost, serverPort));
 });
