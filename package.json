@@ -1,6 +1,6 @@
 {
   "name": "artcite",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Website to aggregate art from various online sources.",
   "main": "server.js",
   "scripts": {
